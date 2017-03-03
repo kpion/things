@@ -1,4 +1,4 @@
-Hint: How to get PHP errors to log/display
+How to get PHP errors to log/display
 
 TL;DR:
 
