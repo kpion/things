@@ -12,7 +12,8 @@ Long version:
 
 	1a. Open your php.ini file
 
-		If you don't know where is this php.ini file located, create a new file like blah.php and put this there: <?php phpinfo();
+		If you don't know where is this php.ini file located, create a new file like blah.php and put this there: 
+		<?php phpinfo();
 		Open it in your browser
 		Under "Loaded Configuration File" you'll find the path to the ini file
 
