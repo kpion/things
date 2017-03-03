@@ -34,8 +34,8 @@ Long version:
 			OS X: sudo apachectl -k restart 
 
 
-	Side note: The above solution is better than using ini_set() and error_reporting() in the script (described below),becase the latter will fail 
-	if there are parse errors. 
+	Side note: The above solution is better than using ini_set() and error_reporting() in the script 
+	(described below),becase the latter will fail if there are parse errors. 
 
 
 2. In case you don't have access to php.ini file for any reason:
@@ -55,12 +55,14 @@ Long version:
  	3a. You can easily "watch" the log file, like this:
  		tail -f /tmp/php_errors.log
 
-	3b. You should consider having two setups, one for dev environment, and one for production. In the latter you don't want to *display* errors,
-	so you can create two versions of php.ini file and in the production version put display_errors = Off and display_startup_errors = Off or in the php code:
+	3b. You should consider having two setups, one for dev environment, and one for production. 
+	In the latter you don't want to *display* errors, so you can create two versions of php.ini file and in 
+	the production version put display_errors = Off and display_startup_errors = Off or in the php code:
 	
 		define('ENVIRONMENT','DEV');//or 'PROD';
 		
-		//these are for both environments, even on production we want to have the errors logged to a file, we just don't want them to be displayed on the screen 
+		//these are for both environments, even on production we want to have the errors logged to a file, 
+		//we just don't want them to be displayed on the screen 
 		error_reporting(-1);
 		ini_set ('log_errors',1);
 		ini_set ('error_log','/tmp/php_errors.log');
@@ -73,10 +75,13 @@ Long version:
 			ini_set('display_startup_errors',0);
 		}
 
-	3c. There is one thing with PDO. By default, PDO::ATTR_ERRMODE is set to ERRMODE_SILENT. This means, if there is an error in SQL/Whatever, PDO will throw no exceptions and it will issue no warnings. You want to change it to:
+	3c. There is one thing with PDO. By default, PDO::ATTR_ERRMODE is set to ERRMODE_SILENT. 
+	This means, if there is an error in SQL/Whatever, PDO will throw no exceptions and it will issue no warnings. 
+	You want to change it to:
 	
     	$dbh = new PDO("mysql:host=localhost;dbname=DATABASE_NAME",'USER','PASSWORD',[
-	  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION;//this is if you want exceptions to be thrown, you can also use PDO::ERRMODE_WARNING to generate warnings.
+		//this is if you want exceptions to be thrown, you can also use PDO::ERRMODE_WARNING to generate warnings.
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION;
 	]);	
 	
 	side note: PDO::__construct will always throw an exception if the connection fails.
