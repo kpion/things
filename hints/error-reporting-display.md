@@ -1,4 +1,4 @@
-How to get PHP errors to log/display
+# How to get PHP errors to log/display
 
 TL;DR:
 
@@ -8,9 +8,9 @@ display_errors = On
 
 Long version:
 
-1. In case you have an access to the php.ini file:
+## 1. In case you have an access to the php.ini file:
 
-	1a. Open your php.ini file
+	### 1a. Open your php.ini file
 
 		If you don't know where is this php.ini file located, create a new file like blah.php and put this there: 
 		<?php phpinfo();
@@ -28,7 +28,7 @@ Long version:
 		
 		
 
-	2b.	Restart your webserver/fastcgi-listeners. 
+	### 2b.	Restart your webserver/fastcgi-listeners. 
 		Restarting Apache:
 			Debian and Debian-based (e.g. Ubuntu): sudo service apache2 restart
 			OS X: sudo apachectl -k restart 
@@ -38,7 +38,7 @@ Long version:
 	(described below),becase the latter will fail if there are parse errors. 
 
 
-2. In case you don't have access to php.ini file for any reason:
+## 2. In case you don't have access to php.ini file for any reason:
 
 	2a. Put this at the top of your script
 
@@ -50,12 +50,12 @@ Long version:
 
 	Side note: when using this method you will not see syntax errors.
  
- 3. More side notes
+ ## 3. More side notes
  
- 	3a. You can easily "watch" the log file, like this:
+ 	### 3a. You can easily "watch" the log file, like this:
  		tail -f /tmp/php_errors.log
 
-	3b. You should consider having two setups, one for dev environment, and one for production. 
+	### 3b. You should consider having two setups, one for dev environment, and one for production. 
 	In the latter you don't want to *display* errors, so you can create two versions of php.ini file and in 
 	the production version put display_errors = Off and display_startup_errors = Off or in the php code:
 	
