@@ -1,12 +1,15 @@
 <?php
 /**
 "Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
+
+Note: this is only if you *really* need them, do you or not is another story.
+
 In Python we could do:
 def info(x = 1, y = 2, z = 3):
 and then call it like this:
 info(x = 100)
 We can't do that in PHP, but we can do this.
-Note - this is a working code - https://3v4l.org/qe9lO
+Note: this is a working code - https://3v4l.org/qe9lO
 */ 
  
 function test1($params){
