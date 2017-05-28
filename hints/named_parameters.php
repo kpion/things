@@ -8,11 +8,17 @@ In Python we could do:
 def info(x = 1, y = 2, z = 3):
 and then call it like this:
 info(x = 100)
-We can't do that in PHP, but we can do this.
-Note: this is a working code - https://3v4l.org/qe9lO
+
+We can't do that in PHP, but we can simply pass an array with key => value pairs.
+
+The final working function is at the end, - function namedParams
+
+Here we will buid it step by step.
+
+This is a working code - https://3v4l.org/qe9lO
 */ 
  
-function test1($params){
+function test1(array $params){
     //now we can do this:
     echo "name: {$params['name']} \n";
     
@@ -35,7 +41,7 @@ echo "\n----------------problem #1 - default values------------------\n\n";
 //if(!isset($params['name'])) {$params['name'] = 'Unknown';}; 
 //but this is a much better and cleaner way:
 
-function test2($params){
+function test2(array $params){
     //default values:
     $params += [
         'name' => 'Unknown',
@@ -55,7 +61,7 @@ test2(['age' => 20]);
 echo "\n----------------problem #2 - unexpected parameters------------------\n\n";
 
 //Another problem is we only want to accept specific parameters (keys) - otherwise we want to generate an error:
-function test3($params){
+function test3(array $params){
     $allowed = ['name', 'age'];
     $givenKeys = array_keys($params);
     $isUnexpected = array_filter($params, function ($v, $k) use ($allowed){
@@ -82,7 +88,7 @@ echo "\n----------------Combined into a utility function------------------\n\n";
 
 //This simple function will take care of both problems, i.e. we pass it an array with default values
 //plus - the only keys we expect.
-function namedParams ($params, $defaults){
+function namedParams (array $params, array $defaults){
     $params += $defaults;
     $allowedKeys = array_keys($defaults);
     $isUnexpected = array_filter($params, function ($k) use ($allowedKeys){
@@ -94,7 +100,7 @@ function namedParams ($params, $defaults){
     return $params;
 } 
 
-function test4 ($params){
+function test4 (array $params){
     //we can try ... and catch any problems if we want, but to keep it simple, we can just do this.
     //These and only these params are expected. Plus, we give them default values.
     $paramsProcessed = namedParams($params,[
