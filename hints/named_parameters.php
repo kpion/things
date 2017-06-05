@@ -2,92 +2,20 @@
 /**
 "Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
 
-Note: this is only if you *really* need them, do you or not is another story.
-
-In Python we could do:
+In Python we can do:
 def info(x = 1, y = 2, z = 3):
 and then call it like this:
 info(x = 100)
 
 We can't do that in PHP, but we can simply pass an array with key => value pairs.
 
-The final working function is at the end, - function namedParams
-
-Here we will buid it step by step.
-
-This is a working code - https://3v4l.org/qe9lO
+This is a working code - https://3v4l.org/Yj8vT
 */ 
- 
-function test1(array $params){
-    //now we can do this:
-    echo "name: {$params['name']} \n";
-    
-    //or import the "params" array into variables:
-    extract($params);
-    
-    //and then:
-    echo "name: $name \n";
-    echo "age: $age \n";
-}
 
-//now we call the function using an array: 
-test1 (['name' => 'Marry', 'age' => 37]);
-
-echo "\n----------------problem #1 - default values------------------\n\n";
-
-//#1. defaults
-//I.e. what if we didn't pass 'name' in our function call? 
-//In our function we could do something like 
-//if(!isset($params['name'])) {$params['name'] = 'Unknown';}; 
-//but this is a much better and cleaner way:
-
-function test2(array $params){
-    //default values:
-    $params += [
-        'name' => 'Unknown',
-        'age' => 37,
-    ]; 
-    //import the "params" array into variables:
-    extract($params);
-    
-    //and then:
-    echo "name: $name \n";
-    echo "age: $age \n";
-}
-
-//now we pass only the 'age' param, the 'name' will be set to 'Unknown':
-test2(['age' => 20]);
-
-echo "\n----------------problem #2 - unexpected parameters------------------\n\n";
-
-//Another problem is we only want to accept specific parameters (keys) - otherwise we want to generate an error:
-function test3(array $params){
-    $allowed = ['name', 'age'];
-    $givenKeys = array_keys($params);
-    $isUnexpected = array_filter($params, function ($v, $k) use ($allowed){
-        return !in_array($k, $allowed);
-    }, ARRAY_FILTER_USE_BOTH);
-    if(!empty($isUnexpected)){
-        throw new InvalidArgumentException('Unexcpected parameters: '.implode(',',array_keys($isUnexpected))); 
-    }    
-    
-    //import the "params" array into variables:
-    extract($params);
-    
-    echo "name: $name \n";
-    echo "age: $age \n";
-}
-//This will be OK:
-test3(['name' => 'Marry', 'age' => 28]);
-
-//This would generate an exception about 'unexpected blah parameter' 
-//test3(['name' => 'Marry', 'age' => 28, 'blah' => 'bar']);
-
-
-echo "\n----------------Combined into a utility function------------------\n\n";
-
-//This simple function will take care of both problems, i.e. we pass it an array with default values
-//plus - the only keys we expect.
+/*
+This function will take care of two problems, i.e. we can pass it an array with default values
+plus - the only keys we expect.
+*/
 function namedParams (array $params, array $defaults){
     $params += $defaults;
     $allowedKeys = array_keys($defaults);
@@ -100,7 +28,7 @@ function namedParams (array $params, array $defaults){
     return $params;
 } 
 
-function test4 (array $params){
+function test (array $params){
     //we can try ... and catch any problems if we want, but to keep it simple, we can just do this.
     //These and only these params are expected. Plus, we give them default values.
     $paramsProcessed = namedParams($params,[
@@ -111,6 +39,6 @@ function test4 (array $params){
     var_dump($paramsProcessed);
 }
 
-test4(['name' => "Konrad"]);
+test(['name' => "Konrad"]);
 //This would throw - Uncaught InvalidArgumentException: Unexpected parameters: blah 
 //test4(['name' => "Konrad", 'blah' => 'oh']);
