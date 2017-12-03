@@ -1,3 +1,4 @@
+```text
 # How to get PHP errors to log/display
 
 TL;DR:
@@ -23,7 +24,9 @@ Long version:
 		display_errors = On
 		display_startup_errors = On
 		log_errors = On
+		
 		;the below path is just an example
+		;YOU NEED TO CREATE THIS FILE IF IT'S NOT THERE! PHP won't do this for you.
 		error_log = /tmp/php_errors.log
 
 		
@@ -85,3 +88,5 @@ Long version:
 	]);	
 	
 side note: PDO::__construct will always throw an exception if the connection fails.
+
+```
