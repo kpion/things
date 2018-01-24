@@ -13,7 +13,9 @@ Long version:
 
 	1a. Open your php.ini file
 
-		If you don't know where is this php.ini file located, create a new file like blah.php and put this there: 
+		If you don't know where is this php.ini file located, create a new file like blah.php 
+		and put this there: 
+		
 		<?php phpinfo();
 		Open it in your browser
 		Under "Loaded Configuration File" you'll find the path to the ini file
@@ -37,8 +39,9 @@ Long version:
 			OS X: sudo apachectl -k restart 
 
 
-		Side note: The above solution is better than using ini_set() and error_reporting() in the script 
-		(described below),becase the latter will fail if there are parse errors. 
+		Side note: The above solution is better than using ini_set() and error_reporting() 
+		in the script (described below),becase the latter will fail 
+		if there are parse errors. 
 
 
 2. In case you don't have access to php.ini file for any reason:
@@ -79,11 +82,13 @@ Long version:
 		}
 
 	3c. There is one thing with PDO. By default, PDO::ATTR_ERRMODE is set to ERRMODE_SILENT. 
-	This means, if there is an error in SQL/Whatever, PDO will throw no exceptions and it will issue no warnings. 
+	This means, if there is an error in SQL/Whatever, PDO will throw no exceptions and 
+	it will issue no warnings. 
 	You want to change it to:
 	
     	$dbh = new PDO("mysql:host=localhost;dbname=DATABASE_NAME",'USER','PASSWORD',[
-		//this is if you want exceptions to be thrown, you can also use PDO::ERRMODE_WARNING to generate warnings.
+		//this is if you want exceptions to be thrown, you can also use 
+		//PDO::ERRMODE_WARNING to generate warnings.
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION;
 	]);	
 	
