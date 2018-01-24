@@ -62,12 +62,14 @@ Long version:
  		tail -f /tmp/php_errors.log
 
 	### 3b. You should consider having two setups, one for dev environment, and one for production. 
-	In the latter you don't want to *display* errors, so you can create two versions of php.ini file and in 
-	the production version put display_errors = Off and display_startup_errors = Off or in the php code:
+	In the latter you don't want to *display* errors, so you can create two versions of php.ini file 
+	and in the production version put display_errors = Off and display_startup_errors = Off 
+	or in the php code:
 	
 		define('ENVIRONMENT','DEV');//or 'PROD';
 		
-		//these are for both environments, even on production we want to have the errors logged to a file, 
+		//these are for both environments, even on production we want to have 
+		//the errors logged to a file, 
 		//we just don't want them to be displayed on the screen 
 		error_reporting(-1);
 		ini_set ('log_errors',1);
