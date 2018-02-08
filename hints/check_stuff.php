@@ -1,7 +1,8 @@
 <?php
 /*
  overcomplicated script checking your PHP's error logging configuration.
-   
+ just copy and paste the following code to some file and run it.
+ the script doesn't change anything, it just reads the configuration and generates a small report.   
  */
 //we'll need it a few times:
 $errorLogFilePath = ini_get('error_log');
@@ -57,7 +58,7 @@ function isCLI(){
 }
 
 /*
- * @param $flags string - h1,error
+ * @param $flags string - h1,error,small
  */
 function echoNL($str = '', $flags = ''){
     if(isCLI()){
