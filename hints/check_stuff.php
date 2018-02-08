@@ -2,7 +2,21 @@
 /*
  overcomplicated script checking your PHP's error logging configuration.
  just copy and paste the following code to some file and run it.
+  
  the script doesn't change anything, it just reads the configuration and generates a small report.   
+
+ example report:
+  
+    No errors found
+
+    ok : php_ini_loaded_file test is fine (/etc/php/7.0/apache2/php.ini)
+    ok : error_reporting test is fine (-1)
+    ok : display_errors test is fine (1)
+    ok : log_errors test is fine (1)
+    ok : error_log test is fine (/tmp/php_errors.log)
+    ok : error_log_exists test is fine (/tmp/php_errors.log)
+    ok : error_log_writable test is fine (/tmp/php_errors.log)
+ *   
  */
 //we'll need it a few times:
 $errorLogFilePath = ini_get('error_log');
