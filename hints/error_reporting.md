@@ -11,7 +11,7 @@ Long version:
 
 1. In case you have an access to the php.ini file:
 
-	1a. Open your php.ini file
+	1a. Edit your php.ini file
 
 		If you don't know where is this php.ini file located, create a new file like blah.php 
 		and put this there: 
