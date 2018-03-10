@@ -7,6 +7,8 @@ $stringArray = new TypedArray('string');
 and now only strings can be added to the above $stringArray. Works with objects as well.
 
 More examples below the class.
+Ah, and here is a working example: https://3v4l.org/kHocv (can be outdated though)
+
 */
 class TypedArray extends \ArrayIterator
 {
