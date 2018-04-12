@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 
+The most advanced live calculator nowadays. Just start entering your math to see the result
+You can enter 6/2*(1+2) to finally find the answer!!!
+-->
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p title = 'e.g. 2 + (4 * 10)'>Expression:</p>
+        
+        <div id = "calc">
+            <input type = "text" id = 'formula'>
+        </div>
+        
+        <p>Result:</p>
+        <div id ='result'></div>
+        
+    <script>
+        let hformula = document.querySelector('#formula');
+        function calculate(){
+            try {
+                var result = eval(hformula.value); 
+            } catch (e) {
+                if (e instanceof SyntaxError) {
+                    var result = 'Syntax error';
+                }
+            }  
+            if(typeof result === 'undefined'){
+                result = 'Syntax Error';
+            }
+            
+            //this is the most essential part.
+            if(result == 42){
+                result = result + ' (Answer to life the universe and everything)';
+            }
+            document.querySelector('#result').textContent = result;            
+        }
+        hformula.addEventListener('keyup', function(key){
+            calculate();
+        });
+        calculate();
+    </script>  
+    
+    </body>
+  
+</html>
