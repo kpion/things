@@ -3,6 +3,7 @@
 That is, some hints and playing with github.
 
 ---
+
 ## PathArray.php
 https://github.com/konradpapala/things/blob/master/hints/PathArray.php
 
@@ -12,7 +13,6 @@ echo PathArray::get($exampleInputData, 'user.name');// (We can use different sep
 More example usages below the class.
 Working example: https://3v4l.org/kYeN9
 
----
 
 ## TypedArray.php
 https://github.com/konradpapala/things/blob/master/hints/TypedArray.php
@@ -25,7 +25,6 @@ More examples below the class.
 
 Ah, and here is a working example: https://3v4l.org/kHocv (can be outdated though)
 
----
 
 ## check_stuff.php
 https://github.com/konradpapala/things/blob/master/hints/check_stuff.php
@@ -34,7 +33,6 @@ https://github.com/konradpapala/things/blob/master/hints/check_stuff.php
 overcomplicated script checking your PHP's error logging configuration.
 just copy and paste the following code to some file and run it.
 
----
 
 ## code_benchmark.php
 https://github.com/konradpapala/things/blob/master/hints/code_benchmark.php
@@ -47,13 +45,11 @@ echo benchmark (function(){
     sleep(1);
 }, 2);
 
----
 ## error_reporting.md
 https://github.com/konradpapala/things/blob/master/hints/error_reporting.md
 
 How to get PHP errors to log/display
 
----
 ## named_parameers.php
 https://github.com/konradpapala/things/blob/master/hints/named_parameters.php
 
@@ -68,6 +64,7 @@ We can't do that in PHP, but we can simply pass an array with key => value pairs
 
 This is a working code - https://3v4l.org/Yj8vT
 
-## More...
+---
 
+## More...
 Also: https://konradpapala.github.io
