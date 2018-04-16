@@ -2,7 +2,7 @@
 
 /*
 PathArray enables working on 'dot notation'  like:
-$exampleInputData = ['user' => ['name' => 'John', 'sex' => 'male'] ],
+$exampleInputData = ['user' => ['name' => 'John', 'sex' => 'male'] ];
 echo PathArray::get($exampleInputData, 'user.name');// (We can use different separators than '.')
 More example usages below the class.
 Working example: https://3v4l.org/kYeN9
