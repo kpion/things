@@ -9,6 +9,8 @@ echo benchmark (function(){
     sleep(1);
 }, 2);
 
+outputs something like: 4000000
+
 @param $callable - the (anonymouse) function to test
 @param $iterations - how many times should we run the code
 @return float
@@ -18,5 +20,11 @@ function benchmark (callable $c, int $iterations = 1, int $precision = 0){
     for ($n = 0; $n < $iterations; $n++){
         $c();
     }
+    
+    /*
+    Here we multiply by 1000 000 because 
+    "If get_as_float is set to TRUE (second param in microtime()), then microtime() returns a float, which represents 
+    the current time in SECONDS since the Unix epoch ACCURATE to the nearest MICROSECOND." 
+    */
     return round((microtime(true)-$st)*1000*1000,$precision);
 }
