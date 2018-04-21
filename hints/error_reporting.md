@@ -24,6 +24,7 @@ Long version:
 
 		error_reporting = -1
 		display_errors = On
+		;if you want to display the errors directly in output (e.g. page): 
 		display_startup_errors = On
 		log_errors = On
 		
