@@ -6,6 +6,7 @@ TL;DR:
 Put/modify this in the php.ini file:
 error_reporting = -1
 display_errors = On
+display_startup_errors = On
 
 Long version:
 
@@ -17,17 +18,18 @@ Long version:
 		and put this there: 
 		
 		<?php phpinfo();
+		
 		Open it in your browser
 		Under "Loaded Configuration File" you'll find the path to the ini file
 
 		Now put or modify this in the php.ini file:
 
 		error_reporting = -1
-		display_errors = On
 		;if you want to display the errors directly in output (e.g. page): 
+		display_errors = On
 		display_startup_errors = On
-		log_errors = On
 		
+		log_errors = On
 		;the below path is just an example
 		;YOU NEED TO CREATE THIS FILE IF IT'S NOT THERE! PHP won't do this for you.
 		error_log = /tmp/php_errors.log
