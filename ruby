@@ -1,0 +1,3 @@
+grep: option requires an argument -- 'e'
+Usage: grep [OPTION]... PATTERN [FILE]...
+Try 'grep --help' for more information.

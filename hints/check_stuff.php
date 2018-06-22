@@ -12,6 +12,7 @@
     ok : php_ini_loaded_file test is fine (/etc/php/7.0/apache2/php.ini)
     ok : error_reporting test is fine (-1)
     ok : display_errors test is fine (1)
+    ok : display_startup_errors test is fine (1)
     ok : log_errors test is fine (1)
     ok : error_log test is fine (/tmp/php_errors.log)
     ok : error_log_exists test is fine (/tmp/php_errors.log)
@@ -32,38 +33,51 @@ $validation = [
             'rules' => [
                 'matches' => -1,
             ],
-	],
+    ],
+    
 	'display_errors' => [
             'val' => ini_get('display_errors'),
-            'type' => 'warning',//exception
+            'type' => 'warning',//we make an exception here, by default it's 'error'
             'rules' => 'required',
             //optional additional message
             'msg' => 'It\'s (maybe) worth enabling only in dev env.',
-	],   
+    ],   
+
+	'display_startup_errors' => [
+        'val' => ini_get('display_startup_errors'),
+        'type' => 'warning',//we make an exception here, by default it's 'error'
+        'rules' => 'required',
+        //optional additional message
+        'msg' => 'It\'s (maybe) worth enabling only in dev env.',
+    ],   
+
     
-        //logging errors on/off
+    
+    //logging errors on/off
 	'log_errors' => [
-            'val' => ini_get('log_errors'),
-            'rules' => 'required',
-	],     
-        //error log file
+        'val' => ini_get('log_errors'),
+        'rules' => 'required',
+    ],     
+    
+    //error log file
 	'error_log' => [
-            'val' => $errorLogFilePath,
-            'rules' => 'required',
+        'val' => $errorLogFilePath,
+        'rules' => 'required',
 	], 
         
-        'error_log_exists'=> [
-            'val' => $errorLogFilePath,
-            'rules' => function($val = ''){
-                return file_exists($val) ? true : "Log file $val doesn't exist";
-            }
-        ],
-        'error_log_writable'=> [
-            'val' => $errorLogFilePath,
-            'rules' => function($val = ''){
-                return is_writable($val) ? true : "Log file $val isn't writable";
-            }
-        ],
+    'error_log_exists'=> [
+        'val' => $errorLogFilePath,
+        'rules' => function($val = ''){
+            return file_exists($val) ? true : "Log file $val doesn't exist";
+        }
+    ],
+
+    'error_log_writable'=> [
+        'val' => $errorLogFilePath,
+        'rules' => function($val = ''){
+            return is_writable($val) ? true : "Log file $val isn't writable";
+        }
+    ],
 ];
 
 //////////////
