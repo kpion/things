@@ -24,23 +24,23 @@ $errorLogFilePath = ini_get('error_log');
 
 $validation = [
 	'php_ini_loaded_file' => [
-            'val' => php_ini_loaded_file(),
-            'rules' => 'required',
+        'val' => php_ini_loaded_file(),
+        'rules' => 'required',
 	],
 	
 	'error_reporting' => [
-            'val' => ini_get('error_reporting'),
-            'rules' => [
-                'matches' => -1,
-            ],
+        'val' => ini_get('error_reporting'),
+        'rules' => [
+            'matches' => -1,
+        ],
     ],
     
 	'display_errors' => [
-            'val' => ini_get('display_errors'),
-            'type' => 'warning',//we make an exception here, by default it's 'error'
-            'rules' => 'required',
-            //optional additional message
-            'msg' => 'It\'s (maybe) worth enabling only in dev env.',
+        'val' => ini_get('display_errors'),
+        'type' => 'warning',//we make an exception here, by default it's 'error'
+        'rules' => 'required',
+        //optional additional message
+        'msg' => 'It\'s (maybe) worth enabling only in dev env.',
     ],   
 
 	'display_startup_errors' => [
