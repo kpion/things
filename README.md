@@ -34,7 +34,7 @@ https://github.com/kpion/things/blob/master/check_stuff.php
 
 
 Overcomplicated script checking your PHP's error logging configuration.
-just copy and paste the following code to some file and run it.
+just copy and paste the above code to some file and run it.
 
 
 ## code_benchmark.php
