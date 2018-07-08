@@ -8,7 +8,7 @@ error_reporting = -1
 display_errors = On
 display_startup_errors = On
 
-And restart your apache/nginx/whatever.
+And restart your apache/nginx/whatever you use.
 
 Detailed version:
 
