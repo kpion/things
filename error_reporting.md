@@ -8,7 +8,9 @@ error_reporting = -1
 display_errors = On
 display_startup_errors = On
 
-Long version:
+And restart your apache/nginx/whatever.
+
+Detailed version:
 
 1. In case you have an access to the php.ini file:
 
