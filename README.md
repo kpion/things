@@ -74,8 +74,11 @@ This is a working code - https://3v4l.org/Yj8vT
 https://github.com/kpion/things/blob/master/var_dump_str.php
 
 var_dump returning a string, in case we need it, for example to log it to a file, example:
-error_log("Something something: ", var_dump_str($someArray));
-working example: https://3v4l.org/BGCgH
+``` 
+error_log("Something something: ", var_dump_str($someArray)); 
+```
+Working example: https://3v4l.org/BGCgH
+
 ---
 
 ## More...
