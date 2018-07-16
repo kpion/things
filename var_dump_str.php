@@ -1,5 +1,4 @@
 <?php
-
 /*
 var_dump returning a string, in case we need it, for example to log it to a file, example:
 error_log("Something something: ", var_dump_str($someArray));

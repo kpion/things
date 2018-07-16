@@ -70,6 +70,12 @@ We can't do that in PHP, but we can simply pass an array with key => value pairs
 
 This is a working code - https://3v4l.org/Yj8vT
 
+## var_dump_str.php
+https://github.com/kpion/things/blob/master/var_dump_str.php
+
+var_dump returning a string, in case we need it, for example to log it to a file, example:
+error_log("Something something: ", var_dump_str($someArray));
+working example: https://3v4l.org/BGCgH
 ---
 
 ## More...
