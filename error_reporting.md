@@ -85,7 +85,7 @@ Detailed version:
 		//we just don't want them to be displayed on the screen 
 		error_reporting(-1);
 		ini_set ('log_errors',1);
-		ini_set ('error_log','/var/log/php.log);
+		ini_set ('error_log','/var/log/php.log');
 		
 		if (ENVIRONMENT === 'DEV'){
 			ini_set('display_errors',1);
