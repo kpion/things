@@ -1,7 +1,7 @@
 <?php
-/**
-"Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
+/*
 
+"Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
 In Python we can do:
 def info(x = 1, y = 2, z = 3):
 and then call it like this:
@@ -12,9 +12,9 @@ We can't do that in PHP, but we can simply pass an array with key => value pairs
 This is a working code - https://3v4l.org/Yj8vT
 */ 
 
-/*
-This function will take care of two problems, i.e. we can pass it an array with default values
-plus - the only keys we expect.
+/**
+ * This function will take care of two problems, i.e. we can pass it an array with default values
+ * plus - the only keys we expect.
 */
 function namedParams (array $params, array $defaults){
     $params += $defaults;
@@ -39,6 +39,6 @@ function test (array $params){
     var_dump($paramsProcessed);
 }
 
-test(['name' => "Konrad"]);
+test(['name' => "Jessica"]);
 //This would throw - Uncaught InvalidArgumentException: Unexpected parameters: blah 
 //test4(['name' => "Konrad", 'blah' => 'oh']);
