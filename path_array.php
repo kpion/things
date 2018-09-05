@@ -10,7 +10,6 @@ Working example: https://3v4l.org/kYeN9
 */
 
 
-
 class PathArray
 {
     

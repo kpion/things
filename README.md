@@ -4,10 +4,10 @@ That is, some hints, things, and playing with github.
 
 ---
 
-## PathArray.php
-https://github.com/kpion/things/blob/master/PathArray.php
+## path_array.php
+https://github.com/kpion/things/blob/master/path_array.php
 
-PathArray enables working on 'dot notation'  like:
+PathArray class - enables working on 'dot notation'  like:
 ```
 $exampleInputData = ['user' => ['name' => 'John', 'sex' => 'male'] ];
 echo PathArray::get($exampleInputData, 'user.name');// (We can use different separators than '.')
@@ -16,10 +16,10 @@ echo PathArray::get($exampleInputData, 'user.name');// (We can use different sep
 Working example: https://3v4l.org/kYeN9
 
 
-## TypedArray.php
-https://github.com/kpion/things/blob/master/TypedArray.php
+## typed_array.php 
+https://github.com/kpion/things/blob/master/typed_array.php
 
-A very simple implementation of 'typed array', like this:
+TypedArray class - A very simple implementation of 'typed array', like this:
 ```
 $stringArray = new TypedArray('string');
 and now only strings can be added to the above $stringArray. Works with objects as well.
@@ -53,7 +53,7 @@ echo benchmark (function(){
 ## error_reporting.md
 https://github.com/kpion/things/blob/master/error_reporting.md
 
-How to get PHP errors to log/display
+How to make PHP errors/warning to log/display
 
 ## named_parameters.php
 https://github.com/kpion/things/blob/master/named_parameters.php
@@ -81,6 +81,4 @@ Working example: https://3v4l.org/BGCgH
 
 ---
 
-## More...
 
-Also: https://kpion.github.io
