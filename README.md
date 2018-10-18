@@ -5,7 +5,6 @@ That is, some hints, things, and playing with github.
 ---
 
 ## path-array.php
-https://github.com/kpion/things/blob/master/path-array.php
 
 See [path-array.php](path-array.php)
 
@@ -19,28 +18,32 @@ Working example: https://3v4l.org/kYeN9
 
 
 ## typed-array.php 
-https://github.com/kpion/things/blob/master/typed-array.php
+
+See [path-array.php](typed-array.php)
 
 TypedArray class - A very simple implementation of 'typed array', like this:
+
 ```
 $stringArray = new TypedArray('string');
 and now only strings can be added to the above $stringArray. Works with objects as well.
 ```
+
 More examples below the class.
 
 Ah, and here is a working example: https://3v4l.org/kHocv (can be outdated though)
 
 
 ## check-stuff.php
-https://github.com/kpion/things/blob/master/check-stuff.php
 
+See [path-array.php](check-stuff.php)
 
 Overcomplicated script checking your PHP's error logging configuration.
 just copy and paste the above code to some file and run it.
 
 
 ## code-benchmark.php
-https://github.com/kpion/things/blob/master/code-benchmark.php
+
+See [path-array.php](code-benchmark.php)
 
 Returns an execution time in microseconds (one millionth (0.000001 or 1/1,000,000) of a second). 
 
@@ -53,12 +56,14 @@ echo benchmark (function(){
 ```
 
 ## error-reporting.md
-https://github.com/kpion/things/blob/master/error-reporting.md
+
+See [path-array.php](error-reporting.md)
 
 How to make PHP errors/warning to log/display
 
 ## named-parameters.php
-https://github.com/kpion/things/blob/master/named-parameters.php
+
+See [path-array.php](named-parameters.php)
 
 "Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
 
@@ -73,14 +78,12 @@ We can't do that in PHP, but we can simply pass an array with key => value pairs
 This is a working code - https://3v4l.org/Yj8vT
 
 ## var-dump-str.php
-https://github.com/kpion/things/blob/master/var-dump-str.php
+
+See [path-array.php](var-dump-str.php)
 
 var_dump returning a string, in case we need it, for example to log it to a file, example:
+
 ``` 
 error_log("Something something: ", var_dump_str($someArray)); 
 ```
 Working example: https://3v4l.org/BGCgH
-
----
-
-
