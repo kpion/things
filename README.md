@@ -19,7 +19,7 @@ Working example: https://3v4l.org/kYeN9
 
 ## typed-array.php 
 
-See [path-array.php](typed-array.php)
+See [typed-array.php](typed-array.php)
 
 TypedArray class - A very simple implementation of 'typed array', like this:
 
@@ -35,7 +35,7 @@ Ah, and here is a working example: https://3v4l.org/kHocv (can be outdated thoug
 
 ## check-stuff.php
 
-See [path-array.php](check-stuff.php)
+See [check-stuff.php](check-stuff.php)
 
 Overcomplicated script checking your PHP's error logging configuration.
 just copy and paste the above code to some file and run it.
@@ -43,7 +43,7 @@ just copy and paste the above code to some file and run it.
 
 ## code-benchmark.php
 
-See [path-array.php](code-benchmark.php)
+See [code-benchmark.php](code-benchmark.php)
 
 Returns an execution time in microseconds (one millionth (0.000001 or 1/1,000,000) of a second). 
 
@@ -57,13 +57,13 @@ echo benchmark (function(){
 
 ## error-reporting.md
 
-See [path-array.php](error-reporting.md)
+See [error-reporting.md](error-reporting.md)
 
 How to make PHP errors/warning to log/display
 
 ## named-parameters.php
 
-See [path-array.php](named-parameters.php)
+See [named-parameters.php](named-parameters.php)
 
 "Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
 
@@ -79,7 +79,7 @@ This is a working code - https://3v4l.org/Yj8vT
 
 ## var-dump-str.php
 
-See [path-array.php](var-dump-str.php)
+See [var-dump-str.php](var-dump-str.php)
 
 var_dump returning a string, in case we need it, for example to log it to a file, example:
 
