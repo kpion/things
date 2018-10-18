@@ -4,8 +4,8 @@ That is, some hints, things, and playing with github.
 
 ---
 
-## path_array.php
-https://github.com/kpion/things/blob/master/path_array.php
+## path-array.php
+https://github.com/kpion/things/blob/master/path-array.php
 
 PathArray class - enables working on 'dot notation'  like:
 ```
@@ -16,8 +16,8 @@ echo PathArray::get($exampleInputData, 'user.name');// (We can use different sep
 Working example: https://3v4l.org/kYeN9
 
 
-## typed_array.php 
-https://github.com/kpion/things/blob/master/typed_array.php
+## typed-array.php 
+https://github.com/kpion/things/blob/master/typed-array.php
 
 TypedArray class - A very simple implementation of 'typed array', like this:
 ```
@@ -29,16 +29,16 @@ More examples below the class.
 Ah, and here is a working example: https://3v4l.org/kHocv (can be outdated though)
 
 
-## check_stuff.php
-https://github.com/kpion/things/blob/master/check_stuff.php
+## check-stuff.php
+https://github.com/kpion/things/blob/master/check-stuff.php
 
 
 Overcomplicated script checking your PHP's error logging configuration.
 just copy and paste the above code to some file and run it.
 
 
-## code_benchmark.php
-https://github.com/kpion/things/blob/master/code_benchmark.php
+## code-benchmark.php
+https://github.com/kpion/things/blob/master/code-benchmark.php
 
 Returns an execution time in microseconds (one millionth (0.000001 or 1/1,000,000) of a second). 
 
@@ -50,13 +50,13 @@ echo benchmark (function(){
 }, 2);
 ```
 
-## error_reporting.md
-https://github.com/kpion/things/blob/master/error_reporting.md
+## error-reporting.md
+https://github.com/kpion/things/blob/master/error-reporting.md
 
 How to make PHP errors/warning to log/display
 
-## named_parameters.php
-https://github.com/kpion/things/blob/master/named_parameters.php
+## named-parameters.php
+https://github.com/kpion/things/blob/master/named-parameters.php
 
 "Named parameters" in PHP. There is no such thing, but we can "simulate" it with arrays.
 
@@ -70,8 +70,8 @@ We can't do that in PHP, but we can simply pass an array with key => value pairs
 
 This is a working code - https://3v4l.org/Yj8vT
 
-## var_dump_str.php
-https://github.com/kpion/things/blob/master/var_dump_str.php
+## var-dump-str.php
+https://github.com/kpion/things/blob/master/var-dump-str.php
 
 var_dump returning a string, in case we need it, for example to log it to a file, example:
 ``` 
