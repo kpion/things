@@ -7,7 +7,7 @@ That is, some hints, things, and playing with github.
 ## path-array.php
 https://github.com/kpion/things/blob/master/path-array.php
 
-See [path-array.php](blob/master/path-array.php)
+See [path-array.php](path-array.php)
 
 PathArray class - enables working on 'dot notation'  like:
 ```
