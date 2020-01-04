@@ -12,7 +12,7 @@ display_errors = On
 display_startup_errors = On
 ```
 
-And restart your apache/nginx/whatever you use.
+And restart your apache/whatever you use.
 
 ## Detailed version:
 
