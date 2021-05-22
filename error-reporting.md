@@ -10,18 +10,21 @@ Put/modify this in the php.ini file:
 error_reporting = -1
 display_errors = On
 display_startup_errors = On
+; Optional. Plus you might need to create this file with right permissions.
+error_log = /var/log/php.log
 ```
 
 And restart your apache/whatever you use.
 
-## Detailed version:
+**Detailed version**
 
-### I. Globally - with php.ini file
+### I. Globally, using php.ini file
 
 This is the more reliable solution, because you'll be able to monitor all the issues, including parse (syntax) errors.
+Changes presented here are common for FPM and Non FPM version, however there are additional steps necessary (highlighted later) when it comes to FPM version.
+Also - the settings are more for a development environment, not production one.
 
-
-#### Edit php.ini file
+#### Edit php.ini file and friends.
 
 If you don't know where is this php.ini file located, create a new file like info.php and put this there: 
 
@@ -30,21 +33,24 @@ If you don't know where is this php.ini file located, create a new file like inf
 ```
 
 Open it in your browser. Under "Loaded Configuration File" you'll find the path to the ini file.
+On Ubuntu distros these are usually `/etc/php/{version}/fpm/php.ini` or `/etc/php/{version}/apache2/php.ini` files, depending on your setup.
 
 Now put or modify this in the php.ini file:
 
 ```ini
+; We want everything to be logged, including notices.
 error_reporting = -1
 ```
 
-and this, if you want to display the errors directly in output, which might be a good idea in dev environment:
+and this, if you want to display the errors directly on output:
 
 ```ini
+; We want to see the issues on the screen, right away.
 display_errors = On
 display_startup_errors = On
 ```
 
-You definitely want the issues to be logged to a file:
+You also definitely want the issues to be logged to a file:
 
 ```ini
 log_errors = On
@@ -52,26 +58,43 @@ log_errors = On
 
 Optional log file location - the below path is just an example. You might need to create this file by yourself, with the right persmissions. 
 
+```ini
+error_log = /var/log/php.log
+```
+If not set, by default, you can see the errors in your webserver logs. E.g. on Debian with Apache, you'll find them in `/var/log/apache2/error.log`.
+
+**FPM:** when you're using Fast CGI, you need to change one additional setting. In the same directory, your php.ini file is located you can see the 'pool.d' subdirectory with configuration files for every pool you defined. E.g. the default `www.conf`. So for example the full path would be `/etc/php/7.2/fpm/pool.d/www.conf`. Edit those files, find the `catch_workers_output` section and add this:
+```ini
+catch_workers_output = yes
+```
+
+From the docs, about this setting: 
+> Redirect worker stdout and stderr into main error log. If not set, stdout and stderr will be redirected to /dev/null according to FastCGI specs.
+
+**FPM**: If you, like me, want to have all the issues in one file, regardless if this is FPM or whatever (at least when it comes to me, I usually work at only one project at a time anyway), then you might want to add this to the `php-fpm.conf` file (which, again, is in the same directory as the php.ini file):
 
 ```ini
 error_log = /var/log/php.log
 ```
 
-By default, you can see the errors in your webserver logs. E.g. on Debian with Apache, you'll find them in `/var/log/apache2/error.log`
+#### Restart your webserver/fastcgi-listeners
 
-#### Restart your webserver/fastcgi-listeners 		
+**FPM:** when you're using Fast CGI, you need to restart the `php-fpm` service, for Debian based distros (e.g. Ubuntu) and PHP version 7.2 that would be:
+```
+sudo service php7.2-fpm restart # Change the PHP version here.
+```
 
+In both cases it won't harm if you restart apache / nginx.
 
-Restarting Apache on Debian and Debian-based (e.g. Ubuntu): 
+Restarting Apache on Debian-based distros (e.g. Ubuntu): 
 ```
 sudo service apache2 restart
 ```
 
-Restarting Apache on OS X: 
+Restarting Nginx on Debian-based distros (e.g. Ubuntu): 
 ```
-sudo apachectl -k restart 
+sudo service nginx restart
 ```
-
 
 ### II. Per script, at runtime
 
@@ -104,7 +127,7 @@ You might want to have two setups, one for dev environment, and one for producti
 
 In the latter you don't want to *display* errors. But you want them logged somewhere.
 
-So you can create two versions of php.ini file  and in the production version put display_errors = Off and display_startup_errors = Off 
+So you can create two versions of php.ini file and in the production version put display_errors = Off and display_startup_errors = Off 
 
 Or, you can do something like this in PHP:
 
@@ -112,9 +135,8 @@ Or, you can do something like this in PHP:
 //this constant might also come from an ini or .env file
 define('ENVIRONMENT','DEV');
 
-//these are common settings, for both environments, even on production we want to have 
-//warnings logged to a file, 
-//we just don't want to see them on the screen 
+// These are common settings, for both environments, even on production we want to have 
+// warnings logged to a file, we just don't want to see them on the screen. 
 
 error_reporting(-1);
 ini_set ('log_errors',1);
